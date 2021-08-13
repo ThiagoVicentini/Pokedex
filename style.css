@@ -87,10 +87,13 @@ h1 {
 .container {
 	padding: 40px;
 	margin: 0 auto;
-	font-family: "Roboto Mono", monospace;
-    font: regular 18pt;
-	color: rgb(43, 43, 43);
-	letter-spacing: 4px;
+}
+
+.not-container {
+    flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	display: flex;
 }
 
 .subtitle {
@@ -109,19 +112,11 @@ h1 {
 	letter-spacing: 4px;
 }
 
-.not-container {
-    flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	display: flex;
-}
-
 .pokedex {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	grid-gap: 20px;
 	padding-inline-start: 0;
-	text-shadow: rgb(170, 169, 169) 2px 2px;
 }
 
 .card {
