@@ -21,12 +21,14 @@ const fetchPokemon = () => {
                         <img class="card-image ${types[0]}" alt="${pokemon.name}" src="${pokemon.sprites.front_default}" />
                         <h2 class="card-title">${pokemon.name}</h2>
                     </li>
-                    <p class= "type">
-                        ${types[0]}
-                    </p>
-                    <p class= "type">
-                        ${types[0]}
-                    </p>
+                    <div class= "type">
+                        <span class = "style-type">
+                            ${types[0]}
+                        </span>
+                        <span class = "style-type">
+                            ${types[0]}
+                        </span>
+                    </div>
                 </div>
                 `
                 return accumulator
