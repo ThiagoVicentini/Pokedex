@@ -453,14 +453,16 @@ h1 {
 .button-style{
 	width: 85px;
 	height: 35px;
-	border-style: solid;
+	border: 2px solid #7d7d7d9f;
 	border-radius: 16px;
-	border-width: thin;
+	transition-duration: 0.3s;
+	background: #F9F3FF;
+	color:#7D7D7D;
 }
 
 .button-style:hover{
-	background-color: rgb(221, 220, 220);
-	color:rgb(170, 169, 169);
+	background-color:#7D7D7D;
+	color: white;
 	cursor: pointer;
 }
 #button-left{
