@@ -3,7 +3,7 @@ import './index.css';
 import'./App.css';
 import logo from './logo.svg';
 import axios from 'axios';
-import { Grid, Card, CardMedia, CardContent } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 const Pokedex = (props) => {
     //const classes = useStyles();

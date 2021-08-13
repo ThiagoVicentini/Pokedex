@@ -1,0 +1,119 @@
+import React, { useEffect, useState } from 'react';
+import { Link, CircularProgress, Button } from "@material-ui/core";
+import { toFirstCharUppercase } from "./constants";
+import axios from 'axios';
+import './index.css';
+import './App.css';
+
+const Pokemon = (props) => {
+    const { match, history } = props;
+    const { params } = match;
+    const { pokemonId } = params;
+    const [pokemon, setPokemon] = useState(undefined);
+
+    useEffect(() => {
+        axios
+          .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
+          .then(function (response) {
+            const { data } = response;
+            setPokemon(data);
+          })
+          .catch(function (error) {
+            setPokemon(false);
+          });
+      }, [pokemonId]);
+    
+      const generatePokemonJSX = (pokemon) => {
+        const { name, id, species, height, weight, types, sprites } = pokemon;
+        const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
+        const { front_default } = sprites;
+        return (
+        
+            <div class= "pokeinfos">
+                <div>
+                    <div class="primeira-tela">
+                        <div class="right">
+                        <div class= "namenum">
+                            <span id = "name">{`${name}`}</span>
+                            <span id = "num">{`Nº ${id}`}</span>
+                        </div>
+            
+                        <div class="definition">
+                         <p>There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.</p>
+                        </div>
+            
+                        <div class= "type">
+                            <p>Type</p>
+                            <div class = "each-type">
+                                <div id= "type1"><p>Type 1</p></div>
+                                <div id= "type2"><p>Type 2</p></div>
+                            </div>
+                        </div>
+            
+                        <div class="weaknesses">
+                            <p>Weaknesses</p>
+                            <div class = "each-weakness">
+                                <div id= "weak1"><p>Weakness 1</p></div>
+                                <div id= "weak2"><p>Weakness 2</p></div>
+                            </div>
+                        </div>
+            
+                        <div class='pokeimg'>
+                            <img src= {fullImageUrl} width="739" height="598"></img>
+                        </div>
+                    </div>
+                </div>
+            
+                <div>
+                    <div class="quadro">
+                        <div class="properties">
+                        {`Altura: ${height}`}
+                        </div>
+                        <div class="properties">
+                        {`Peso: ${weight}`}
+                        </div>
+                        <div class="properties">
+                        {`Espécie: ${species}`}
+                        </div>
+                        <div class="properties">
+                            Abilities
+                        </div>
+                        <div class="properties">
+                            Gender
+                        </div>
+                    
+                    </div>
+                        <div class="evolution-container">
+                            <div id="evolution1" class="evolution"></div>
+                            <div id="evolution2" class="evolution"></div>
+                            <div id="evolution3" class="evolution"></div>
+                        </div>
+            
+                        <button onclick="topFunction()" class="button-top">
+                            <span class= "material-icons">expand_less</span>
+                        </button>
+                    </div>
+            
+                </div>
+
+            </div>
+            );
+    };
+
+    return (
+        <>
+          {pokemon === undefined && <CircularProgress />}
+          {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
+          {pokemon === false && <p> Pokemon not found</p>}
+    
+          {pokemon !== undefined && (
+            <Button class="button" onClick={() => history.push("/")}>
+              Voltar
+            </Button>
+          )}
+        </>
+      );
+    };
+
+export default Pokemon;
+

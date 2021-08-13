@@ -1,104 +1,110 @@
-import React, { useEffect, useState } from 'react';
-import { Link, CircularProgress, Button } from "@material-ui/core";
-import { toFirstCharUppercase } from "./constants";
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import './index.css';
-import './App.css';
+import { CircularProgress } from "@material-ui/core";
+import { toFirstCharUppercase } from "./constants";
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Pokemon = (props) => {
-    const { match, history } = props;
-    const { params } = match;
-    const { pokemonId } = params;
-    const [pokemon, setPokemon] = useState(undefined);
+  const { match } = props;
+  const { params } = match;
+  const { pokemonId } = params;
+  const [pokemon, setPokemon] = useState(undefined);
 
-    useEffect(() => {
-        axios
-          .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
-          .then(function (response) {
-            const { data } = response;
-            setPokemon(data);
-          })
-          .catch(function (error) {
-            setPokemon(false);
-          });
-      }, [pokemonId]);
-    
-      const generatePokemonJSX = (pokemon) => {
-        const { name, id, species, height, weight, types, sprites } = pokemon;
-        const fullImageUrl = `https://pokeres.bastionbot.org/images/pokemon/${id}.png`;
-        const { front_default } = sprites;
-        return (
-            <div>
-                <div class="primeira-tela">
-                    <div class="right">
-                    <div class="name-index">
-                        {`${name} ${id}`}
-                    </div>
-        
-                    <div class="initial-text">
-                    </div>
-        
-                    <div class='type-container'>
-                    {`${types} ${types}`}
-                    </div>
-        
-                    <div class="weaknesses-container">
-                        <div></div>
-                    </div>
-        
-                    <div class='left'>
-                        <img src= {fullImageUrl}></img>
-                    </div>
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
+      .then(function (response) {
+        const { data } = response;
+        setPokemon(data);
+      })
+      .catch(function (error) {
+        setPokemon(false);
+      });
+  }, [pokemonId]);
+
+  const generatePokemonJSX = (pokemon) => {
+    const { name, id, species, height, weight, types, sprites, abilities, category, gender} = pokemon;
+    const fullImageUrl = `http://pokeapi.co/media/sprites/pokemon/${id}.png`;
+    const { front_default } = sprites;
+    return (
+      <div>
+        <div class= "pokeinfos">
+              <div class= "infos">    
+                  <div class= "namenum">
+                      <span id = "name">{toFirstCharUppercase(name)}</span>
+                      <span id = "num">{`Nº ${id}`}</span>
+                  </div>
+
+                  <div class= "definition">
+                        <div><p>There's a seed.</p></div>
+                        {`Species: ${species.name}`}
+                  </div>
+
+                  <div class= "type">
+                        <p>Type</p>
+                        <div class = "each-type">
+                              {types.map((typeInfo) => {
+                              const { type } = typeInfo;
+                              const { name } = type;
+                              return <div id= "type1"><p>{name}</p></div>
+                              })}
+                        </div>
+                  </div>
+
+                  <div class= "weaknesses">
+                        <p>Weaknesses</p>
+                    
+                  </div>
+              </div>
+
+              <div class = "pokeimg"><img src={front_default} alt="pokemon" height='600' width='740'></img></div>
+              </div>
+            
+            <div class="quadro">
+                <div class="height">
+                    {`Altura: ${height}`}
+                </div>
+                <div class="weight">
+                  {`Peso: ${weight}`}
+                </div>
+                <div class="category">
+                  {`Categoria: ${category}`}
+                </div>
+                <div class="abilities">
+                {abilities.map((abilityInfo) => {
+                              const { ability } = abilityInfo;
+                              const { name } = ability;
+                              return <div id="abilities"><p>{name}</p></div>
+                              })}
+                </div>
+                <div class="gender">
+                  Gender
                 </div>
             </div>
             
-            <div>
-                <div class="quadro">
-                    <div class="properties">
-                    {`Altura: ${height}`}
-                    </div>
-                    <div class="properties">
-                    {`Peso: ${weight}`}
-                    </div>
-                    <div class="properties">
-                    {`Espécie: ${species}`}
-                    </div>
-                    <div class="properties">
-                        Abilities
-                    </div>
-                    <div class="properties">
-                        Gender
-                    </div>
-                
-                </div>
-                    <div class="evolution-container">
-                        <div id="evolution1" class="evolution"></div>
-                        <div id="evolution2" class="evolution"></div>
-                        <div id="evolution3" class="evolution"></div>
-                    </div>
-        
-                    <button onclick="topFunction()" class="button-top">
-                        <span class= "material-icons">expand_less</span>
-                    </button>
-                </div>
-        
+            <div className='evolution-container'>
+              <div className='evolution'></div>
+              <div className='evolution'></div>
+              <div className='evolution'></div>
             </div>
-            );
-    };
+           
 
-    return (
-        <>
-          {pokemon === undefined && <CircularProgress />}
-          {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
-          {pokemon === false && <p> Pokemon not found</p>}
-    
-          {pokemon !== undefined && (
-            <Button class="button" onClick={() => history.push("/")}>
-              Voltar
-            </Button>
-          )}
-        </>
-      );
-    };
+      </div>
+    )
+};
+
+return (
+    <>
+      {pokemon === undefined && <CircularProgress />}
+      {pokemon !== undefined && pokemon && generatePokemonJSX(pokemon)}
+      {pokemon === false && <p> Pokemon not found</p>}
+
+      {pokemon !== undefined && (
+        <Link to="/">Voltar</Link>
+      )}
+    </>
+  );
+};
 
 export default Pokemon;
