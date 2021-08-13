@@ -49,7 +49,7 @@ window.onload = () => {
         const searchString = e.target.value;
 
         const filteredPokemons = pokemonPromises.filter(pokemon => {
-            return pokemon.name.includes(searchString); 
+            return pokemon.name.includes(searchString) || escape(pokemon.id).includes(searchString); 
         });
         
         loadPokemons(filteredPokemons) 
@@ -57,6 +57,7 @@ window.onload = () => {
 };
 
 window.onscroll = () =>{
+    mybutton = document.getElementById("myBtn");
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
         mybutton.style.display = "block";
     } 
