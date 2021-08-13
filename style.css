@@ -94,7 +94,7 @@ h1 {
 	border: 1px solid #000000;
 	border-radius: 16px;
 	margin-left: 36px;
-	margin-top: 44px;
+	margin-top: 100px;
 }
 
 .height{
@@ -142,6 +142,15 @@ h1 {
 	padding-top: 36px;
 }
 
+.circles{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	align-items: center;
+}
+
 .round-frame-default{
 	background: #F9F3FF;
 	width: 240px;
@@ -150,9 +159,17 @@ h1 {
 	border-radius: 50%;
 }
 
-.position1{
+.arrow{
+	font-size: 60px;
+	color: rgb(41, 41, 41);
+	text-shadow: rgb(170, 169, 169) 1px 1px;
+}
+
+
+
+/*.position1{
 	margin-left: 3.25rem;
-	margin-top: 3.813rem;
+	margin-top: 100px;
 	margin-bottom: 7.813rem;
 }
 
@@ -164,7 +181,7 @@ h1 {
 .position3{
 	margin-left: 24.5rem;
 	margin-bottom: 7.813rem;
-}
+}*/
 
 #button-container {
     display: flex;
@@ -432,3 +449,28 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+
+.button-style{
+	width: 85px;
+	height: 35px;
+	border-style: solid;
+	border-radius: 16px;
+	border-width: thin;
+}
+
+.button-style:hover{
+	background-color: rgb(221, 220, 220);
+	color:rgb(170, 169, 169);
+	cursor: pointer;
+}
+#button-left{
+	float: left; 
+	margin-bottom: 34px;
+	margin-left: 40px;
+}
+
+#button-right{
+	float: right;
+	margin-bottom: 34px;
+	margin-right: 40px;
+} 
