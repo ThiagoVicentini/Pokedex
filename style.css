@@ -16,17 +16,17 @@ h1 {
 	font-size: 54px;
 }
 
-#title {
+#logo {
     margin-top: 150px;
 }
 
-#title img {
+#logo img {
     max-width: 500px;
     width: auto;
     height: auto;
 }
 
-.search-bar {
+#searchBar {
     background: #F9F3FF;
     margin: 20px;
     padding: 5px;
@@ -37,6 +37,13 @@ h1 {
     border-radius: 18px;
     font-family: "Roboto Mono", monospace;
     font: regular 18pt #7D7D7D;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 390px;
 }
 
 .button {
@@ -51,13 +58,6 @@ h1 {
     font-family: "Roboto Mono", monospace;
     font: regular 18pt #7D7D7D;
 	cursor: pointer;
-}
-
-#button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 390px;
 }
 
 .button-top{
@@ -79,6 +79,7 @@ h1 {
 	background-color:#7D7D7D;
 	color: white
 }
+
 .material-icons{ 
 	font-size: 30px; 
 }
@@ -132,21 +133,36 @@ h1 {
 	position: relative;
 }
 
-.card::after {
+.card:after {
 	content: "";
-  display: block;
-  width: 50%;
-  height: 45%;
-  border-radius: 100%;
-  background-color: #fff;
-  opacity: .7;
-  position: absolute;
-  top: 15%;
-  left: 25%;
+  	display: block;
+  	width: 50%;
+	height: 45%;
+	border-radius: 100%;
+	background-color: #fff;
+	opacity: .7;
+	position: absolute;
+	top: 15%;
+	left: 25%;
 }
 
 .card:hover {
 	animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+	20% {
+			transform: translateY(-6px);
+	}
+	40% {
+			transform: translateY(0px);
+	}
+	80% {
+			transform: translateY(-2px);
+	}
+	100% {
+			transform: translateY(0);
+	}
 }
 
 .card-title {
@@ -172,24 +188,65 @@ h1 {
 	z-index: 2;
 }
 
-@keyframes bounce {
-	20% {
-			transform: translateY(-6px);
-	}
-	40% {
-			transform: translateY(0px);
-	}
-
-	80% {
-			transform: translateY(-2px);
-	}
-	100% {
-			transform: translateY(0);
-	}
+.steel {
+	background-color: #f4f4f4;
 }
 
+.fire {
+	background-color: #FDDFDF;
+}
 
+.grass {
+	background-color: #DEFDE0;
+}
 
+.electric {
+	background-color: #FCF7DE;
+}
+
+.water, .ice {
+	background-color: #DEF3FD;
+}
+
+.ground {
+	background-color: #f4e7da;
+}
+
+.rock {
+	background-color: #d5d5d4;
+}
+
+.fairy {
+	background-color: #fceaff;
+}
+
+.poison {
+	background-color: #98d7a5;
+}
+
+.bug {
+	background-color: #f8d5a3;
+}
+
+.dragon {
+	background-color: #97b3e6;
+}
+
+.psychic {
+	background-color: #eaeda1;
+}
+
+.flying {
+	background-color: #F5F5F5;
+}
+
+.fighting {
+	background-color: #E6E0D4;
+}
+
+.normal {
+	background-color: #F5F5F5;
+}
 
 
 
