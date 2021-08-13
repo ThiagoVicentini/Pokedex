@@ -49,6 +49,35 @@ h1 {
 	cursor: pointer;
 }
 
+html{
+	scroll-behavior: smooth;
+}
+
+.button:hover{
+	background-color:#7D7D7D;
+	color: white
+}
+
+.button-top{
+	z-index: 10 !important;
+	position: fixed;
+	cursor: pointer;
+	bottom: 8px;
+	right: 10px;
+	width: 54px;
+	height: 52px;
+	border: 2px solid #7d7d7d9f;
+	border-radius: 50%;
+	background: #F9F3FF;
+	transition-duration: 0.3s;
+	color: #7D7D7D;
+}
+
+.button-top:hover{
+	background-color:#7D7D7D;
+	color: white
+}
+
 /*.home-page-button {
 	background: white;
 	margin: 10px;
