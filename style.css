@@ -12,17 +12,17 @@ h1 {
 	font-size: 54px;
 }
 
-#title {
+#logo {
     margin-top: 150px;
 }
 
-#title img {
+#logo img {
     max-width: 500px;
     width: auto;
     height: auto;
 }
 
-.search-bar {
+#searchBar {
     background: #F9F3FF;
     margin: 20px;
     padding: 5px;
@@ -33,6 +33,13 @@ h1 {
     border-radius: 18px;
     font-family: "Roboto Mono", monospace;
     font: regular 18pt #7D7D7D;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 390px;
 }
 
 .button {
@@ -46,13 +53,6 @@ h1 {
     border-radius: 18px;
     font-family: "Roboto Mono", monospace;
     font: regular 18pt #7D7D7D;
-}
-
-#button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 390px;
 }
 
 .container {
@@ -83,21 +83,36 @@ h1 {
 	position: relative;
 }
 
-.card::after {
+.card:after {
 	content: "";
-  display: block;
-  width: 50%;
-  height: 45%;
-  border-radius: 100%;
-  background-color: #fff;
-  opacity: .7;
-  position: absolute;
-  top: 15%;
-  left: 25%;
+  	display: block;
+  	width: 50%;
+	height: 45%;
+	border-radius: 100%;
+	background-color: #fff;
+	opacity: .7;
+	position: absolute;
+	top: 15%;
+	left: 25%;
 }
 
 .card:hover {
 	animation: bounce 0.5s linear;
+}
+
+@keyframes bounce {
+	20% {
+			transform: translateY(-6px);
+	}
+	40% {
+			transform: translateY(0px);
+	}
+	80% {
+			transform: translateY(-2px);
+	}
+	100% {
+			transform: translateY(0);
+	}
 }
 
 .card-title {
@@ -122,23 +137,6 @@ h1 {
 	position: relative;
 	z-index: 2;
 }
-
-@keyframes bounce {
-	20% {
-			transform: translateY(-6px);
-	}
-	40% {
-			transform: translateY(0px);
-	}
-
-	80% {
-			transform: translateY(-2px);
-	}
-	100% {
-			transform: translateY(0);
-	}
-}
-
 
 .steel {
 	background-color: #f4f4f4;
