@@ -4,14 +4,18 @@ function lerCookie(chave){
 }
 
 const getPokemonURL = (id) => `https://pokeapi.co/api/v2/pokemon/${id}`
-id_pokemon = lerCookie("id")
+const getPokemonPhraseURL = (id) => `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+let id_pokemon = lerCookie("id");
+let frase = ''; 
 
 if(id_pokemon != null){
-
-    pokemonPromise = fetch(getPokemonURL(id_pokemon)).then(response => response.json())
+    pokemonPromise = fetch(getPokemonURL(id_pokemon)).then(response => response.json());
     pokemonPromise.then(pokemon => {
-        const types = pokemon.types.map(typeInfo => typeInfo.type.name)
-        const accumulator = `
+        const types = pokemon.types.map(typeInfo => typeInfo.type.name);
+        type1 = types[0];
+        type2 = types[1];
+
+        let accumulator = `
             <div class="pokeinfos">
                 <div class="infos">    
                     <div class="namenum">
@@ -20,14 +24,16 @@ if(id_pokemon != null){
                     </div>
 
                     <div class="definition">
-                        <div><p>${pokemon.name}</p></div>
+                        <div><p>${frase}</p></div>
                     </div>
 
                     <div class="type">
                         <p>Type</p>
                         <div class="each-type">
-                            <div class="style-infos"><p>${types[0]}</p></div>
-                            <div class="style-infos"><p>Type 2</p></div>
+                            <div class="style-infos"><p>${type1}</p></div>`
+                            if(type2 != undefined)
+                                accumulator += `<div class="style-infos"><p>${type2}</p></div>`;
+                            accumulator += `
                         </div>
                     </div>
                 </div>
@@ -48,23 +54,14 @@ if(id_pokemon != null){
                 </div>
             </div>
 
-            <div class = "circles">
-                <div class="round-frame-default"></div>
-                <span class="arrow"><i class= "material-icons arrow">east</i></span>
-                <div class="round-frame-default"></div>
-                <span class="arrow"><i class= "material-icons arrow">east</i></span>
-                <div class="round-frame-default"></div>
+            <div class="buttons">
+                <button class= "button-style" id="button-left"><i class="material-icons">chevron_left</i></button>
+                <button class= "button-style" id="button-right"><i class="material-icons">chevron_right</i></button>
             </div>
-            
-            <div class= "buttons">
-                <button class= "button-style" id="button-left"><i class= "material-icons">chevron_left</i></button>
-                <button class= "button-style" id="button-right"><i class= "material-icons">chevron_right</i></button>
-            </div>
-        `
-        const div = document.querySelector('[data-js="pokedex"]')
-        div.innerHTML = accumulator      
-    })
-    setCookie("id", -1);
+        `;
+        const body = document.querySelector('[data-js="pokedex"]');
+        body.innerHTML = accumulator;    
+    });
 
 }else{
 
