@@ -49,21 +49,8 @@ const Pokedex = (props) => {
                 <div className='name'>{`${toFirstCharUppercase(name)}`}</div>
             </div>
         </div>
-
-
-    //   <Grid item xs={4} key={pokemonId}>
-    //     <Card className='card' onClick={() => history.push(`/${id}`)}>
-    //       <CardMedia
-    //         //className={classes.cardMedia}
-    //         image={sprite}
-    //         style={{ width: "130px", height: "130px" }}
-    //       />
-    //       <CardContent >
-    //         <h2>{`${id} ${toFirstCharUppercase(name)}`}</h2>
-    //       </CardContent>
-    //     </Card>
-    //   </Grid>
     )};
+
 
     return (
         <div className="App">
