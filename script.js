@@ -25,13 +25,21 @@ const loadPokemons = (pokemonPromises) => {
             const types = pokemon.types.map(typeInfo => typeInfo.type.name);
     
             accumulator += `
-            <li class="card ${types[0]}">
+            <div class = "card-elements">
+                <li class="card ${types[0]}">
                 <a href="generica.html" onclick="criaCookie(${pokemon.id})"> 
-                    <img class="card-image" alt="${pokemon.name}" src="${pokemon.sprites.front_default}" />
-                    <h2 class="card-title">${pokemon.id} - ${pokemon.name} </h2>
+                    <h2 class= "card-number">N° ${pokemon.id}</h2>
+                    <img class="card-image ${types[0]}" alt="${pokemon.name}" src="${pokemon.sprites.front_default}" />
+                    <h2 class="card-title">${pokemon.name}</h2>
                 </a>
-                <p class="card-subtitle"> ${types.join(' | ')}</p>
-            </li>
+                </li>
+                <p class="type ${types[0]}">
+                    ${types[0]}
+                </p>
+                <p class="type ${types[0]}">
+                    ${types[0]}
+                </p>
+            </div>
             `;
             return accumulator;
         }, '');
