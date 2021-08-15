@@ -27,7 +27,7 @@ const Pokemon = (props) => {
   const generatePokemonJSX = (pokemon) => {
     const { name, id, species, height, weight, types, sprites, abilities, stats} = pokemon;
     console.log(pokemon);
-    const fullImageUrl = `http://pokeapi.co/media/sprites/pokemon/${id}.png`;
+    const fullImageUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
     const { front_default } = sprites;
     return (
       <div className='maiorDeTodos'>
@@ -38,8 +38,7 @@ const Pokemon = (props) => {
                       <span id = "num">{` Nº ${id}`}</span>
                   </div>
 
-                  <div className= "definition">
-                        <div><p>There's a seed.</p></div>
+                  <div className= "species">
                         {`Species: ${species.name}`}
                   </div>
 
@@ -77,7 +76,8 @@ const Pokemon = (props) => {
                 
                 </div>
                 </div>
-
+              
+              <div className='quadro'>
               <div className='stats'>
               {stats.map((statsInfo, idx) => {
                               const { stat } = statsInfo;
@@ -90,6 +90,7 @@ const Pokemon = (props) => {
                               );
                               })}
               </div>
+            </div>
             </div>
             
             {/* <div className='evolution-container'>

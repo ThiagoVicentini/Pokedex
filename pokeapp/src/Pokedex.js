@@ -46,7 +46,8 @@ const Pokedex = (props) => {
             <div className='card' onClick={() => history.push(`/${id}`)}>
                 <div className="button-id">{`${id}`}</div>
                 <img src={sprite}></img>
-                <div className='name'>{`${toFirstCharUppercase(name)}`}</div>
+                <div className='card-name'>{`${toFirstCharUppercase(name)}`}</div>
+                <div className='card-types'></div>
             </div>
         </div>
     )};

@@ -92,10 +92,9 @@ form input {
   margin-top: 15px;
 }
 
-.name {
+.card-name {
   margin-top: 15px;
 }
-
 
 .evolution-container {
 	display: flex;
@@ -164,7 +163,7 @@ form input {
 .info-container {
 	font-family: "Roboto Mono", monospace;
     font: regular 18pt #7D7D7D;
-	margin: 50px 50px 50px 100px; 
+	margin: 50px 50px 50px 50px; 
 	align-content: center;
 	text-align: center;
 }
@@ -172,25 +171,33 @@ form input {
 .namenum{
 	background-color: #F9F3FF;	
 	border-radius: 16px;
-	border:#F9F3FF 10px solid;
+	border:#F9F3FF 20px solid;
 	width: max-content;
 	height: 30px;
-	margin :25px;
+	margin: 25px;
 	text-align: center;
 	display: inline-block;
 }
 
-.definition {
+#name, #num {
+	font-size: 20px;
+}
+
+.species {
 	text-align: center;
+	font-style: italic;
+	font-size: 18px;
+	margin: 50px;
 }
 
 p {
 	text-align: center;
+	font-style: oblique;
 }
 
 .type{
-	font-size: 24px;
-	margin-top: 70px;
+	font-size: 18px;
+	margin-top: 100px;
 }
 
 .each-type{
@@ -201,14 +208,14 @@ p {
 
 #type{
 	width: fit-content;
-	height: 85px;
+	height: 60px;
 	border-radius: 15%;
-	border-right: 10px solid #3cdfd6;
-	border-left: 10px solid #3cdfd6;
+	border-right: 10px solid #c9f05e;
+	border-left: 10px solid #c9f05e;
 	font: regular 18pt #F9F3FF;
-  	background: #3cdfd6;
+  	background: #c9f05e;
 	text-align: center;
-	margin: 10px 0px;
+	margin: 20px 0px;
 	font-style: italic;
 }
 
