@@ -6,7 +6,6 @@ import axios from 'axios';
 import { Grid } from '@material-ui/core';
 
 const Pokedex = (props) => {
-    //const classes = useStyles();
     const { history } = props;
     const [pokemonData, setPokemonData] = useState({});
     const [filter, setFilter] = useState("");
