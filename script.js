@@ -21,7 +21,7 @@ const fetchPokemon = () => {
                         <img class="card-image ${types[0]}" alt="${pokemon.name}" src="${pokemon.sprites.front_default}" />
                         <h2 class="card-title">${pokemon.name}</h2>
                     </li>
-                    <div class= "type">
+                    <div class= "type-card">
                         <span class = "style-type">
                             ${types[0]}
                         </span>
