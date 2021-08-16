@@ -43,10 +43,9 @@ const Pokedex = (props) => {
     return (
         <div className="container">
             <div className='card' onClick={() => history.push(`/${id}`)}>
-                <div className="button-id">{`${id}`}</div>
+                <div className="card-id">{`${id}`}</div>
                 <img src={sprite}></img>
                 <div className='card-name'>{`${toFirstCharUppercase(name)}`}</div>
-                <div className='card-types'></div>
             </div>
         </div>
     )};
@@ -57,14 +56,15 @@ const Pokedex = (props) => {
 
         <header>
             <img src={logo} className="App-logo" alt="logo" />
+            
             <form > 
-            <label>
-                <input
-                type="text"
-                onChange={handleSearchChange}
-                placeholder="Pesquise por nome"
-                />
-            </label>
+                <label>
+                    <input
+                    type="text"
+                    onChange={handleSearchChange}
+                    placeholder="Pesquise por nome"
+                    />
+                </label>
             </form>
 
             <div id="button-container">
@@ -72,10 +72,12 @@ const Pokedex = (props) => {
             <a href="https://youtu.be/dQw4w9WgXcQ">
             <button id="surpreenda-me" className="button">Surpreenda-me!</button>
             </a>
+
             </div>
         </header>
 
-        <body className='card-grid'>
+        <div className='card-grid'>
+
             <Grid container spacing={2}>
             {Object.keys(pokemonData).map(
                 (pokemonId) =>
@@ -83,10 +85,11 @@ const Pokedex = (props) => {
                 getPokemonCard(pokemonId)
             )}
             </Grid>
-        </body>
 
         </div>
-        );
+
+        </div>
+    );
 };
 
 export default Pokedex;

@@ -3,9 +3,8 @@
 body {
   margin: 0;
   font-family: 'Roboto Mono', sans-serif;
-  background: #EFEFBB;
-  background: -webkit-linear-gradient(to right, #cbc6fc, #EFEFBB);
-  background: linear-gradient(to right, #cbc6fc, #EFEFBB);
+  background: -webkit-linear-gradient(to right, rgb(197, 230, 236), rgb(239, 187, 230));
+  background: linear-gradient(to right, rgb(197, 230, 236), rgb(239, 187, 230))
 }
 
 code {

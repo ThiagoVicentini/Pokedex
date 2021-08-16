@@ -27,13 +27,12 @@ const Pokemon = (props) => {
   const generatePokemonJSX = (pokemon) => {
     const { name, id, species, height, weight, types, sprites, abilities, stats} = pokemon;
     console.log(pokemon);
-    const fullImageUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
     const { front_default } = sprites;
     return (
-      <div className='maiorDeTodos'>
-        <div className= "primeira-tela">
+      <div>
+        <div className= "first-screen">
               <div className= "info-container">    
-                  <div className= "namenum">
+                  <div className= "name-container">
                       <span id = "name">{toFirstCharUppercase(name)}</span>
                       <span id = "num">{` Nº ${id}`}</span>
                   </div>
@@ -42,7 +41,7 @@ const Pokemon = (props) => {
                         {`Species: ${species.name}`}
                   </div>
 
-                  <div className= "type">
+                  <div className= "type-container">
                         <p>Type</p>
                         <div className = "each-type">
                               {types.map((typeInfo, idx) => {
@@ -54,52 +53,45 @@ const Pokemon = (props) => {
                   </div>
               </div>
 
-              <div className = "pokeimg"><img src={front_default} alt="pokemon"></img></div>
+              <div className = "pokemon-img"><img src={front_default} alt="pokemon"></img></div>
               </div>
             
-            <div className='segunda-tela'>
-            <div className ="quadro">
-                <div className ="caracteristica">
+        <div className='second-screen'>
+          <div className ="board">
+            <div className ="height">
                     {`Height: ${height} ft`}
-                </div>
-                <div className ="caracteristica">
-                  {`Weight: ${weight} lbs`}
-                </div>
-              
-                <div className ="abilities">
-                  <p id="abilities-title">Abilities:</p>
-                  {abilities.map((abilityInfo, idx) => {
-                              const { ability } = abilityInfo;
-                              const { name } = ability;
-                              return <div id= "abilities-container" key={idx}><p id='ability'>{name}</p></div>
-                              })}
-                
-                </div>
-                </div>
-              
-              <div className='quadro'>
-              <div className='stats'>
-              {stats.map((statsInfo, idx) => {
-                              const { stat } = statsInfo;
-                              const { base_stat } = statsInfo;
-                              const { name } = stat;
-                              return (
-                              <>
-                              <div id= "stat" key={idx}><p>{name}: {base_stat}</p></div>
-                              </>
-                              );
-                              })}
-              </div>
             </div>
-            </div>
-            
-            {/* <div className='evolution-container'>
-              <div className='evolution'><img src={`http://pokeapi.co/media/sprites/pokemon/${id}.png`}></img></div>
-              <div className='evolution' src={`http://pokeapi.co/media/sprites/pokemon/${id+1}.png`}></div>
-              <div className='evolution'></div>
-            </div>
-            */}
 
+            <div className ="weight">
+                    {`Weight: ${weight} lbs`}
+            </div>
+                
+            <div className ="abilities">
+                <p id="abilities-title">Abilities:</p>
+                {abilities.map((abilityInfo, idx) => {
+                  const { ability } = abilityInfo;
+                  const { name } = ability;
+                  return <div id= "abilities-container" key={idx}><p id='ability'>{name}</p></div>
+                  })}
+                  
+            </div>
+          </div>
+              
+            <div className='board'>
+              <div className='stats'>
+                {stats.map((statsInfo, idx) => {
+                  const { stat } = statsInfo;
+                  const { base_stat } = statsInfo;
+                  const { name } = stat;
+                  return (
+                    <>
+                    <div id= "stat" key={idx}><p>{name}: {base_stat}</p></div>
+                    </>
+                    );
+                    })}
+                </div>
+            </div>
+        </div>
       </div>
     )
 };
