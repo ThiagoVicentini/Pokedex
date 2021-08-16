@@ -4,7 +4,7 @@ import Pokemon from './Pokemon';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
     <Switch>
